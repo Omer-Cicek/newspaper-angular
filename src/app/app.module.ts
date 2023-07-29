@@ -3,14 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { BusinessComponent } from './business/business.component';
-import { EntertaintmentComponent } from './entertaintment/entertaintment.component';
-import { GeneralComponent } from './general/general.component';
-import { HealthComponent } from './health/health.component';
-import { ScienceComponent } from './science/science.component';
-import { SportsComponent } from './sports/sports.component';
-import { TechnologyComponent } from './technology/technology.component';
+import { HomeComponent } from './pages/home/home.component';
+import { BusinessComponent } from './pages/business/business.component';
+import { EntertaintmentComponent } from './pages/entertaintment/entertaintment.component';
+import { GeneralComponent } from './pages/general/general.component';
+import { HealthComponent } from './pages/health/health.component';
+import { ScienceComponent } from './pages/science/science.component';
+import { SportsComponent } from './pages/sports/sports.component';
+import { TechnologyComponent } from './pages/technology/technology.component';
+import { HeaderComponent } from './components/header/header.component';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +24,12 @@ import { TechnologyComponent } from './technology/technology.component';
     HealthComponent,
     ScienceComponent,
     SportsComponent,
-    TechnologyComponent
+    TechnologyComponent,
+    HeaderComponent,
+    AboutComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

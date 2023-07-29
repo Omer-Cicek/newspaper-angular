@@ -1,27 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EntertaintmentComponent } from './entertaintment/entertaintment.component';
-import { HomeComponent } from './home/home.component';
+import { EntertaintmentComponent } from './pages/entertaintment/entertaintment.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AboutComponent } from './pages/about/about.component';
+import { BusinessComponent } from './pages/business/business.component';
+import { GeneralComponent } from './pages/general/general.component';
+import { HealthComponent } from './pages/health/health.component';
+import { ScienceComponent } from './pages/science/science.component';
+import { SportsComponent } from './pages/sports/sports.component';
+import { TechnologyComponent } from './pages/technology/technology.component';
 
 const routes: Routes = [
-  {
-    path: 'recipes',
-    component: HomeComponent,
-    // children: [
-    //   { path: 'entertainment', component: EntertaintmentComponent },
-    //   { path: 'new', component: RecipeEditComponent },
-    //   {
-    //     path: ':id',
-    //     component: RecipeDetailComponent,
-    //     resolve: [RecipesResolverService],
-    //   },
-    //   {
-    //     path: ':id/edit',
-    //     component: RecipeEditComponent,
-    //     resolve: [RecipesResolverService],
-    //   },
-    // ],
-  },
+  { path: '', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'business', component: BusinessComponent },
+  { path: 'entertainment', component: EntertaintmentComponent },
+  { path: 'general', component: GeneralComponent },
+  { path: 'health', component: HealthComponent },
+  { path: 'science', component: ScienceComponent },
+  { path: 'sports', component: SportsComponent },
+  { path: 'technology', component: TechnologyComponent },
 ];
 
 @NgModule({

@@ -1,0 +1,43 @@
+.header {
+  width: 100%;
+  height: auto;
+  border: 1px red solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.upside-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  font-size: 1.1rem;
+}
+.navbar-nav > * {
+  margin-left: 10px;
+}
+
+.downside-header {
+  border: 1px red solid;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+}
