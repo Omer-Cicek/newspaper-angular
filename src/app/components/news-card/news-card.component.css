@@ -1,0 +1,39 @@
+.newsCard {
+  display: flex;
+  max-width: 900px;
+  padding: 10px;
+  margin: 10px;
+  height: auto;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 60%;
+}
+
+.description {
+  font-size: 13px;
+  color: grey;
+}
+
+.cardFooter {
+  display: flex;
+  margin-top: 10px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.newsImage {
+  width: 40%;
+  /* border: 1px blue solid; */
+}

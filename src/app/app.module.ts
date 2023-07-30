@@ -13,6 +13,8 @@ import { SportsComponent } from './pages/sports/sports.component';
 import { TechnologyComponent } from './pages/technology/technology.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AboutComponent } from './pages/about/about.component';
+import { NewsCardComponent } from './components/news-card/news-card.component';
+import { ImageSliderComponent } from './components/image-slider/image-slider.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { AboutComponent } from './pages/about/about.component';
     TechnologyComponent,
     HeaderComponent,
     AboutComponent,
+    NewsCardComponent,
+    ImageSliderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

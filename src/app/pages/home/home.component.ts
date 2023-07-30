@@ -9,6 +9,14 @@ import { GetData } from 'src/app/services/getData.service';
 export class HomeComponent {
   news: [] = [];
   constructor(private getData: GetData) {}
+
+  slides = [
+    { url: 'asd', title: 'beach' },
+    { url: 'asd', title: 'boat' },
+    { url: 'asd', title: 'forest' },
+    { url: 'asd', title: 'city' },
+    { url: 'asd', title: 'italy' },
+  ];
   getNews() {
     this.getData
       .getNewsWithoutQuery()
