@@ -11,11 +11,11 @@ export class HomeComponent {
   constructor(private getData: GetData) {}
 
   slides = [
-    { url: 'asd', title: 'beach' },
-    { url: 'asd', title: 'boat' },
-    { url: 'asd', title: 'forest' },
-    { url: 'asd', title: 'city' },
-    { url: 'asd', title: 'italy' },
+    { url: '../../../assets/hamburgerMenu.png', title: 'beach' },
+    { url: '../../../assets/noImage.jpg', title: 'boat' },
+    { url: '../../../assets/noImage.jpg', title: 'forest' },
+    { url: '../../../assets/noImage.jpg', title: 'city' },
+    { url: '../../../assets/noImage.jpg', title: 'italy' },
   ];
   getNews() {
     this.getData
