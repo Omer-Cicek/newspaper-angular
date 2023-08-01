@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { newsData } from '../../shared/newsData.interface';
 
 @Component({
   selector: 'app-news-card',
@@ -6,17 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./news-card.component.css'],
 })
 export class NewsCardComponent {
-  @Input() newsData: {
-    url: string;
-    title: string;
-    source: {
-      id: string;
-      name: string;
-    };
-    author: string;
-    content: string;
-    description: string;
-    publishedAt: string;
-    urlToImage: string | null;
-  };
+  @Input() newsData: newsData;
 }

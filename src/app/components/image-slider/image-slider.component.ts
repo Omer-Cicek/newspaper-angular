@@ -1,13 +1,12 @@
 import { Component, OnDestroy, OnInit, Input } from '@angular/core';
-import { SlideInterface } from './image-slider.interface';
-
+import { newsData } from 'src/app/shared/newsData.interface';
 @Component({
   selector: 'app-image-slider',
   templateUrl: './image-slider.component.html',
   styleUrls: ['./image-slider.component.css'],
 })
 export class ImageSliderComponent implements OnInit, OnDestroy {
-  @Input() slides: SlideInterface[] = [];
+  @Input() slides: newsData[] = [];
 
   currentIndex: number = 0;
   timeoutId?: number;
@@ -46,9 +45,5 @@ export class ImageSliderComponent implements OnInit, OnDestroy {
   goToSlide(slideIndex: number): void {
     this.resetTimer();
     this.currentIndex = slideIndex;
-  }
-
-  getCurrentSlideUrl() {
-    return `url('${this.slides[this.currentIndex].url}')`;
   }
 }

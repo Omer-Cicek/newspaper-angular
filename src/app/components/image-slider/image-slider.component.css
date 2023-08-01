@@ -2,8 +2,13 @@
   width: 100%;
   height: 100%;
   border-radius: 10px;
-  background-size: cover;
+  margin-top: 10px;
+  background-color: #f8f8f8;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
+  position: relative;
+  background-image: url("src/assets/noImage.jpg");
 }
 
 .rightArrow {
@@ -12,7 +17,7 @@
   transform: translate(0, -50%);
   right: 32px;
   font-size: 45px;
-  color: #fff;
+  color: #015aac;
   z-index: 1;
   cursor: pointer;
 }
@@ -23,7 +28,7 @@
   transform: translate(0, -50%);
   left: 32px;
   font-size: 45px;
-  color: #fff;
+  color: #015aac;
   z-index: 1;
   cursor: pointer;
 }
@@ -42,4 +47,15 @@
   margin: 0 3px;
   cursor: pointer;
   font-size: 20px;
+}
+
+.description {
+  height: 30%;
+  width: 100%;
+  background-color: hsla(0, 0%, 0%, 0.6);
+  border-radius: 5px;
+  position: absolute;
+  color: #f8f8f8;
+  bottom: 0;
+  padding: 10px;
 }
