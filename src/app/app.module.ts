@@ -15,6 +15,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { AboutComponent } from './pages/about/about.component';
 import { NewsCardComponent } from './components/news-card/news-card.component';
 import { ImageSliderComponent } from './components/image-slider/image-slider.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ImageSliderComponent } from './components/image-slider/image-slider.com
     AboutComponent,
     NewsCardComponent,
     ImageSliderComponent,
+    PaginationComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

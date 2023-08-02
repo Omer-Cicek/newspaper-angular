@@ -1,0 +1,9 @@
+<div class="paginationContainer">
+    <span (click)="prevPage()" class="arrows">&#10094;</span>
+    <span *ngFor="let pageNum of pageNumbers" class="paginationNums" (click)="changePage(pageNum+1)"
+        [ngStyle]="{'color': currentPage == pageNum+1 ? 'blue': 'black',  'font-size':  currentPage == pageNum+1 ?  '1rem': '1.1rem'}">
+
+        {{pageNum +1 }}
+    </span>
+    <span (click)="nextPage()" class="arrows">&#10095;</span>
+</div>
