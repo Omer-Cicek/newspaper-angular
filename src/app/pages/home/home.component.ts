@@ -8,11 +8,12 @@ import { newsData } from 'src/app/shared/newsData.interface';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  news: newsData[] = [];
+  news: newsData[] = []; //keeps news to display
   constructor(private getData: GetData) {}
-  newsCount: number;
-  currentPageNum: number = 1;
-  slides: [] = [];
+  newsCount: number; //Gives total count of news(34)
+  currentPageNum: number = 1; //holds current page number
+  slides: [] = []; //Holds news that will be shown at slider compoenent(first three news)
+  missingNews: newsData[] = [];
 
   getNews() {
     this.getData
@@ -20,16 +21,15 @@ export class HomeComponent {
       .then((response) => {
         console.log(response, 'resppp');
         this.newsCount = response.data.totalResults;
-        this.news = response.data.articles.slice(3);
+        this.news = response.data.articles.slice(3); //gets news from newsapi
         this.calculateMissingNewsCount(response.data.totalResults);
-        const ömer = response.data.articles.slice(
-          -this.calculateMissingNewsCount(response.data.totalResults)
-        );
-        console.log(ömer);
+        this.missingNews = response.data.articles //gets the news that make "news array" 20
+          .slice(-this.calculateMissingNewsCount(response.data.totalResults));
+        console.log(this.missingNews, 'asdasd');
         this.slides = response.data.articles.slice(0, 3).map((el: newsData) => {
           return {
             ...el,
-            ifNoImg: 'src/assets/noImage.jpg',
+            ifNoImg: 'src/assets/noImage.jpg', //sets the default image path if the image has no image
           };
         });
       })
@@ -50,16 +50,21 @@ export class HomeComponent {
     if (pageNumber == this.currentPageNum) return;
     this.currentPageNum = pageNumber;
     this.getData.getNewsWithPageNum(pageNumber).then((news) => {
-      console.log(news);
+      console.log(news, 'news', news.data.articles.length);
+      if (pageNumber == 1) this.news = news.data.articles.slice(3);
+      // gets all 20 news except first 3 if pageNumber is 1
+      else if (news.data.articles.length < 17)
+        this.news = [...this.missingNews, ...news.data.articles];
     });
   }
 
   calculateMissingNewsCount(num: number) {
+    const num2 = num - 3;
     //calculates how many items do we need to make array 20 news
-    if (num >= 20 && num % 20 === 0) {
+    if (num2 >= 17 && num2 % 17 === 0) {
       return 0; // Already a multiple of 20, no need to increase.
     } else {
-      return 20 - (num % 20);
+      return 17 - (num2 % 17);
     }
   }
 }

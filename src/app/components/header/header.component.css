@@ -24,7 +24,7 @@
   flex-direction: row;
   list-style-type: none;
   font-size: 1.1rem;
-  gap: 10px;
+  gap: 20px;
 }
 
 .downside-header {
@@ -58,6 +58,11 @@ a:hover {
 
 .hamburgerMenu {
   visibility: hidden;
+}
+
+.activeTab {
+  transform: scale(1.2);
+  text-decoration: underline;
 }
 @media screen and (max-width: 850px) {
   .hamburgerMenu {

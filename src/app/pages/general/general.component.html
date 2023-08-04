@@ -1,1 +1,4 @@
-<p>general works!</p>
+<div class="generalContainer" *ngFor="let new of news; let i=index">
+    <app-news-card [newsData]="new"> </app-news-card>
+</div>
+<app-pagination [newsCount]='newsCount' (parentFunction)="pageChanged($event)"></app-pagination>
