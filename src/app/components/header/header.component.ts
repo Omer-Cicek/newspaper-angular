@@ -1,4 +1,4 @@
-import { Component, SimpleChanges } from '@angular/core';
+import { Component, HostListener, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +7,8 @@ import { Component, SimpleChanges } from '@angular/core';
 })
 export class HeaderComponent {
   activeTab: string = '';
-  width: string | number;
   isHamburgerOpen: boolean = false;
+  smaller850px: boolean = false;
 
   dragging: boolean = false;
 
@@ -17,18 +17,19 @@ export class HeaderComponent {
     this.activeTab = activeTab;
   }
 
-  toggleHamburger() {
-    this.isHamburgerOpen = !this.isHamburgerOpen;
-    let open = this.isHamburgerOpen;
-    window.addEventListener('resize', function (event) {
-      //   console.log(event!.target!.outerWidth);
-      open = true;
-    });
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    console.log('sa');
+    if (window.innerWidth < 850) {
+      this.smaller850px = true;
+      this.isHamburgerOpen = false;
+    } else if (window.innerWidth >= 850) {
+      this.smaller850px = false;
+      this.isHamburgerOpen = false;
+    }
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
-    console.log(window);
-    this.width = window.innerWidth;
+  toggleHamburger() {
+    this.isHamburgerOpen = !this.isHamburgerOpen;
   }
 }

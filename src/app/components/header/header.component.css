@@ -1,5 +1,6 @@
 .header {
   width: 100%;
+  border: 10px red solid;
   height: auto;
   background-color: #0971cf;
   color: #fff;
@@ -43,7 +44,6 @@ ul {
 
 a {
   color: #fff;
-  transform: scaleX(0);
   text-decoration: none;
   font-size: 1rem;
 }
@@ -63,6 +63,7 @@ a:hover {
 
 .hamburgerMenu {
   visibility: hidden;
+  margin: 10px;
 }
 
 .activeTab {

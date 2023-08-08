@@ -1,46 +1,81 @@
 <div class="header">
-    <div class="upside-header">
-        <li routerLinkActive="active">
-            <a routerLink="/" class="name">Ömer Faruk ÇİÇEK</a>
-        </li>
-        <input type="text">
-    </div>
-    <div class="downside-header">
-        <div></div>
-        <ul class="nav navbar-nav links" [ngStyle]="{'display': isHamburgerOpen ? 'flex' : 'none' }">
-            <li routerLinkActive="active" (click)="setActiveTab('business')"
-                [ngClass]="[activeTab === 'business' ? 'activeTab' : '']">
-                <a routerLink="/business">Business</a>
-            </li>
-            <li routerLinkActive="active" (click)="setActiveTab('entertainment')"
-                [ngClass]="[activeTab === 'entertainment' ? 'activeTab' : '']">
-                <a routerLink="/entertainment">Entertainment</a>
-            </li>
-            <li routerLinkActive="active" (click)="setActiveTab('general')"
-                [ngClass]="[activeTab === 'general' ? 'activeTab' : '']">
-                <a routerLink="/general">General</a>
-            </li>
-            <li routerLinkActive="active" (click)="setActiveTab('health')"
-                [ngClass]="[activeTab === 'health' ? 'activeTab' : '']">
-                <a routerLink="/health">Health</a>
-            </li>
-            <li routerLinkActive="active" (click)="setActiveTab('sports')"
-                [ngClass]="[activeTab === 'sports' ? 'activeTab' : '']">
-                <a routerLink="/sports">Sports</a>
-            </li>
-            <li routerLinkActive="active" (click)="setActiveTab('science')"
-                [ngClass]="[activeTab === 'science' ? 'activeTab' : '']">
-                <a routerLink="/science">Science</a>
-            </li>
-            <li routerLinkActive="active" (click)="setActiveTab('technology')"
-                [ngClass]="[activeTab === 'technology' ? 'activeTab' : '']">
-                <a routerLink="/technology">Technologies</a>
-            </li>
-            <li routerLinkActive="active" (click)="setActiveTab('about')"
-                [ngClass]="[activeTab === 'about' ? 'activeTab' : '']">
-                <a routerLink="/about">About</a>
-            </li>
-        </ul>
-        <img src="../../../assets/hamburgerMenu.png" class="hamburgerMenu" alt="hamburger" (click)="toggleHamburger()">
-    </div>
+  <div class="upside-header">
+    <li routerLinkActive="active">
+      <a routerLink="/" class="name">Ömer Faruk ÇİÇEK</a>
+    </li>
+    <input type="text" />
+  </div>
+  <div class="downside-header">
+    <div></div>
+    <ul
+      class="nav navbar-nav links"
+      [ngStyle]="{
+        display: !smaller850px || isHamburgerOpen ? 'flex' : 'none',
+        'flex-direction': isHamburgerOpen ? 'column' : 'row'
+      }"
+    >
+      <li
+        routerLinkActive="active"
+        (click)="setActiveTab('business')"
+        [ngClass]="[activeTab === 'business' ? 'activeTab' : '']"
+      >
+        <a routerLink="/business">Business</a>
+      </li>
+      <li
+        routerLinkActive="active"
+        (click)="setActiveTab('entertainment')"
+        [ngClass]="[activeTab === 'entertainment' ? 'activeTab' : '']"
+      >
+        <a routerLink="/entertainment">Entertainment</a>
+      </li>
+      <li
+        routerLinkActive="active"
+        (click)="setActiveTab('general')"
+        [ngClass]="[activeTab === 'general' ? 'activeTab' : '']"
+      >
+        <a routerLink="/general">General</a>
+      </li>
+      <li
+        routerLinkActive="active"
+        (click)="setActiveTab('health')"
+        [ngClass]="[activeTab === 'health' ? 'activeTab' : '']"
+      >
+        <a routerLink="/health">Health</a>
+      </li>
+      <li
+        routerLinkActive="active"
+        (click)="setActiveTab('sports')"
+        [ngClass]="[activeTab === 'sports' ? 'activeTab' : '']"
+      >
+        <a routerLink="/sports">Sports</a>
+      </li>
+      <li
+        routerLinkActive="active"
+        (click)="setActiveTab('science')"
+        [ngClass]="[activeTab === 'science' ? 'activeTab' : '']"
+      >
+        <a routerLink="/science">Science</a>
+      </li>
+      <li
+        routerLinkActive="active"
+        (click)="setActiveTab('technology')"
+        [ngClass]="[activeTab === 'technology' ? 'activeTab' : '']"
+      >
+        <a routerLink="/technology">Technologies</a>
+      </li>
+      <li
+        routerLinkActive="active"
+        (click)="setActiveTab('about')"
+        [ngClass]="[activeTab === 'about' ? 'activeTab' : '']"
+      >
+        <a routerLink="/about">About</a>
+      </li>
+    </ul>
+    <img
+      src="../../../assets/hamburgerMenu.png"
+      class="hamburgerMenu"
+      alt="hamburger"
+      (click)="toggleHamburger()"
+    />
+  </div>
 </div>
