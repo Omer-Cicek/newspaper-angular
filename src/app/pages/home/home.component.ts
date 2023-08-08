@@ -14,8 +14,10 @@ export class HomeComponent {
   currentPageNum: number = 1; //holds current page number
   slides: [] = []; //Holds news that will be shown at slider compoenent(first three news)
   missingNews: newsData[] = [];
+  isLoading: boolean = false;
 
   getNews() {
+    this.isLoading = true;
     this.getData
       .getNewsWithoutQuery()
       .then((response) => {
@@ -35,7 +37,8 @@ export class HomeComponent {
       })
       .catch((error) => {
         console.log(error);
-      });
+      })
+      .finally(() => (this.isLoading = false));
   }
 
   ngOnChanges(changes: SimpleChanges) {

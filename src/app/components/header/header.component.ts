@@ -15,6 +15,7 @@ export class HeaderComponent {
   setActiveTab(activeTab: string) {
     console.log(activeTab);
     this.activeTab = activeTab;
+    this.isHamburgerOpen = false;
   }
 
   @HostListener('window:resize', ['$event'])

@@ -13,24 +13,30 @@ export class SportsComponent {
   currentPageNum: number | null = null; //holds current page number
   slides: [] = []; //Holds news that will be shown at slider compoenent(first three news)
   missingNews: newsData[] = [];
+  isLoading: boolean = false;
 
   constructor(private getData: GetData) {}
 
   pageChanged(pageNumber: number) {
     if (pageNumber == this.currentPageNum) return;
+    this.isLoading = true;
     this.currentPageNum = pageNumber;
-    this.getData.getNewsWithCategoryName('sports', pageNumber).then((news) => {
-      this.newsCount = news.data.totalResults;
-      console.log(news, 'news', news.data.articles.length);
-      this.news = news.data.articles.slice(3); //gets news from newsapi
-      this.calculateMissingNewsCount(news.data.totalResults);
-      this.missingNews = news.data.articles //gets the news that make "news array" 20
-        .slice(-this.calculateMissingNewsCount(news.data.totalResults));
-      if (pageNumber == 1) this.news = news.data.articles.slice(3);
-      // gets all 20 news except first 3 if pageNumber is 1
-      else if (news.data.articles.length < 17)
-        this.news = [...this.missingNews, ...news.data.articles];
-    });
+    this.getData
+      .getNewsWithCategoryName('sports', pageNumber)
+      .then((news) => {
+        this.newsCount = news.data.totalResults;
+        console.log(news, 'news', news.data.articles.length);
+        this.news = news.data.articles.slice(3); //gets news from newsapi
+        this.calculateMissingNewsCount(news.data.totalResults);
+        this.missingNews = news.data.articles //gets the news that make "news array" 20
+          .slice(-this.calculateMissingNewsCount(news.data.totalResults));
+        if (pageNumber == 1) this.news = news.data.articles.slice(3);
+        // gets all 20 news except first 3 if pageNumber is 1
+        else if (news.data.articles.length < 17)
+          this.news = [...this.missingNews, ...news.data.articles];
+      })
+      .catch((err) => console.log(err))
+      .finally(() => (this.isLoading = false));
   }
 
   calculateMissingNewsCount(num: number) {

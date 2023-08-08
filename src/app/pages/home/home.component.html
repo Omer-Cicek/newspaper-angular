@@ -1,7 +1,25 @@
-<div class="slider" style="width: 70%; height: 350px; margin: 0 auto;">
-    <app-image-slider [slides]="slides"></app-image-slider>
+<div
+  *ngIf="!isLoading"
+  class="slider"
+  style="width: 70%; height: 350px; margin: 15px auto"
+>
+  <app-image-slider [slides]="slides"></app-image-slider>
 </div>
-<div class="homeContainer" *ngFor="let new of news; let i=index">
-    <app-news-card [newsData]="new"> </app-news-card>
+
+<div class="homeContainer" *ngFor="let new of news; let i = index">
+  <app-news-card [newsData]="new" *ngIf="!isLoading"> </app-news-card>
 </div>
-<app-pagination [newsCount]='newsCount' (parentFunction)="pageChanged($event)"></app-pagination>
+<div class="spinner">
+  <img
+    src="../../../assets//spinner.gif"
+    *ngIf="isLoading"
+    alt="spinner"
+    width="100"
+    height="100"
+  />
+</div>
+<app-pagination
+  *ngIf="!isLoading"
+  [newsCount]="newsCount"
+  (parentFunction)="pageChanged($event)"
+></app-pagination>

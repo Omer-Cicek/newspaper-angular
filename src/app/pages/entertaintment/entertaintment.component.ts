@@ -13,11 +13,13 @@ export class EntertaintmentComponent {
   currentPageNum: number | null = null; //holds current page number
   slides: [] = []; //Holds news that will be shown at slider compoenent(first three news)
   missingNews: newsData[] = [];
+  isLoading: boolean = false;
 
   constructor(private getData: GetData) {}
 
   pageChanged(pageNumber: number) {
     if (pageNumber == this.currentPageNum) return;
+    this.isLoading = true;
     this.currentPageNum = pageNumber;
     this.getData
       .getNewsWithCategoryName('entertainment', pageNumber)
@@ -32,7 +34,9 @@ export class EntertaintmentComponent {
         // gets all 20 news except first 3 if pageNumber is 1
         else if (news.data.articles.length < 17)
           this.news = [...this.missingNews, ...news.data.articles];
-      });
+      })
+      .catch((err) => console.log(err))
+      .finally(() => (this.isLoading = false));
   }
 
   calculateMissingNewsCount(num: number) {

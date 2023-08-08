@@ -6,3 +6,17 @@
   padding: 0px;
   font-family: "Poppins", sans-serif;
 }
+
+.spinner {
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  body {
+    padding: 0px;
+  }
+}

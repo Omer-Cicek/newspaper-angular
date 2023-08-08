@@ -1,6 +1,5 @@
 .header {
   width: 100%;
-  border: 10px red solid;
   height: auto;
   background-color: #0971cf;
   color: #fff;
@@ -8,6 +7,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 10px;
 }
 
 .upside-header {
@@ -87,5 +87,10 @@ a:hover {
   }
   .navbar-nav {
     display: flex;
+  }
+}
+@media (max-width: 766px) {
+  .header {
+    width: 100% !important;
   }
 }
