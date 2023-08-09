@@ -13,6 +13,8 @@
   margin-top: 10px;
   align-items: center;
   justify-content: center;
+  min-height: 50vh;
+  border: 1px red solid;
 }
 
 @media (max-width: 766px) {

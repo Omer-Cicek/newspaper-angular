@@ -26,13 +26,11 @@ export class GeneralComponent {
       .then((news) => {
         this.newsCount = news.data.totalResults;
         console.log(news, 'news', news.data.articles.length);
-        this.news = news.data.articles.slice(3); //gets news from newsapi
+        this.news = news.data.articles; //sets news from newsapi
         this.calculateMissingNewsCount(news.data.totalResults);
-        this.missingNews = news.data.articles //gets the news that make "news array" 20
+        this.missingNews = news.data.articles //sets the news that make "news array" 20
           .slice(-this.calculateMissingNewsCount(news.data.totalResults));
-        if (pageNumber == 1) this.news = news.data.articles.slice(3);
-        // gets all 20 news except first 3 if pageNumber is 1
-        else if (news.data.articles.length < 17)
+        if (news.data.articles.length < 20)
           this.news = [...this.missingNews, ...news.data.articles];
       })
       .catch((err) => console.log(err))

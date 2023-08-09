@@ -1,4 +1,10 @@
-import { Component, HostListener, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +15,15 @@ export class HeaderComponent {
   activeTab: string = '';
   isHamburgerOpen: boolean = false;
   smaller850px: boolean = false;
-
   dragging: boolean = false;
+
+  @Output() headerValueChange: EventEmitter<any> = new EventEmitter();
+
+  // ...
+
+  inputValue(value: any) {
+    this.headerValueChange.emit(value); // Emit the value whenever it changes
+  }
 
   setActiveTab(activeTab: string) {
     console.log(activeTab);
@@ -20,7 +33,6 @@ export class HeaderComponent {
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
-    console.log('sa');
     if (window.innerWidth < 850) {
       this.smaller850px = true;
       this.isHamburgerOpen = false;

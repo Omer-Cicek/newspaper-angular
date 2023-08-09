@@ -3,7 +3,7 @@
   class="slider"
   style="width: 70%; height: 350px; margin: 15px auto"
 >
-  <app-image-slider [slides]="slides"></app-image-slider>
+  <app-image-slider [slides]="slides" *ngIf="!isLoading"></app-image-slider>
 </div>
 
 <div class="homeContainer" *ngFor="let new of news; let i = index">

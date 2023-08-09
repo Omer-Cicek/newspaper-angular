@@ -1,5 +1,5 @@
 <div class="healthContainer" *ngFor="let new of news; let i=index">
-    <app-news-card [newsData]="new"> </app-news-card>
+    <app-news-card [newsData]="new" *ngIf="!isLoading"> </app-news-card>
 </div>
 <div class="spinner">
     <img
@@ -10,4 +10,4 @@
       height="100"
     />
   </div>
-<app-pagination [newsCount]='newsCount' (parentFunction)="pageChanged($event)"></app-pagination>
+<app-pagination *ngIf="!isLoading" [newsCount]='newsCount' (parentFunction)="pageChanged($event)"></app-pagination>

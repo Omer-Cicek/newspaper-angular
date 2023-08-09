@@ -1,5 +1,5 @@
 <div class="generalContainer" *ngFor="let new of news; let i = index">
-  <app-news-card [newsData]="new"> </app-news-card>
+  <app-news-card [newsData]="new" *ngIf="!isLoading"> </app-news-card>
 </div>
 
 <div class="spinner">
@@ -12,6 +12,7 @@
   />
 </div>
 <app-pagination
+  *ngIf="!isLoading"
   [newsCount]="newsCount"
   (parentFunction)="pageChanged($event)"
 ></app-pagination>

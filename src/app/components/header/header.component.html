@@ -3,7 +3,9 @@
     <li routerLinkActive="active">
       <a routerLink="/" class="name">Ömer Faruk ÇİÇEK</a>
     </li>
-    <input type="text" />
+    <app-input-component
+      (headerValueChange)="inputValue($event)"
+    ></app-input-component>
   </div>
   <div class="downside-header">
     <div></div>

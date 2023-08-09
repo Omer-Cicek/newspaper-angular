@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, SimpleChanges } from '@angular/core';
+import { Component, SimpleChanges } from '@angular/core';
 import { GetData } from 'src/app/services/getData.service';
 import { newsData } from 'src/app/shared/newsData.interface';
 
