@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GetData } from 'src/app/services/getData.service';
+import { CalculationService } from 'src/app/services/calculation.service';
 import { newsData } from 'src/app/shared/newsData.interface';
 
 @Component({
@@ -15,7 +16,10 @@ export class GeneralComponent {
   missingNews: newsData[] = [];
   isLoading: boolean = false;
 
-  constructor(private getData: GetData) {}
+  constructor(
+    private getData: GetData,
+    private calculationService: CalculationService
+  ) {}
 
   pageChanged(pageNumber: number) {
     if (pageNumber == this.currentPageNum) return;
@@ -27,23 +31,22 @@ export class GeneralComponent {
         this.newsCount = news.data.totalResults;
         console.log(news, 'news', news.data.articles.length);
         this.news = news.data.articles; //sets news from newsapi
-        this.calculateMissingNewsCount(news.data.totalResults);
-        this.missingNews = news.data.articles //sets the news that make "news array" 20
-          .slice(-this.calculateMissingNewsCount(news.data.totalResults));
+        this.calculationService.calculateMissingNewsCount(
+          news.data.totalResults
+        );
+        if (this.missingNews.length == 0) {
+          this.missingNews = news.data.articles //sets the news that make "news array" 20
+            .slice(
+              -this.calculationService.calculateMissingNewsCount(
+                news.data.totalResults
+              )
+            );
+        }
         if (news.data.articles.length < 20)
           this.news = [...this.missingNews, ...news.data.articles];
       })
       .catch((err) => console.log(err))
       .finally(() => (this.isLoading = false));
-  }
-
-  calculateMissingNewsCount(num: number) {
-    //calculates how many items do we need to make array 20 news
-    if (num >= 20 && num % 20 === 0) {
-      return 0; // Already a multiple of 20, no need to increase.
-    } else {
-      return 20 - (num % 20);
-    }
   }
 
   ngOnInit() {

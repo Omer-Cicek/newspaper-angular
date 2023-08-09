@@ -25,8 +25,10 @@ export class HomeComponent {
         this.newsCount = response.data.totalResults;
         this.news = response.data.articles.slice(3); //gets news from newsapi
         this.calculateMissingNewsCount(response.data.totalResults);
-        this.missingNews = response.data.articles //gets the news that make "news array" 20
-          .slice(-this.calculateMissingNewsCount(response.data.totalResults));
+        if (this.missingNews.length == 0) {
+          this.missingNews = response.data.articles //gets the news that make "news array" 20
+            .slice(-this.calculateMissingNewsCount(response.data.totalResults));
+        }
         console.log(this.missingNews, 'asdasd');
         this.slides = response.data.articles.slice(0, 3).map((el: newsData) => {
           return {

@@ -1,10 +1,5 @@
-import {
-  Component,
-  EventEmitter,
-  HostListener,
-  Output,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, EventEmitter, HostListener, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,21 +7,23 @@ import {
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  activeTab: string = '';
+  constructor(private route: ActivatedRoute, private router: Router) {}
+  activeTab: string = this.router.url.replace('/', '');
   isHamburgerOpen: boolean = false;
   smaller850px: boolean = false;
   dragging: boolean = false;
+  searchInputValue: string = '';
 
   @Output() headerValueChange: EventEmitter<any> = new EventEmitter();
 
-  // ...
-
   inputValue(value: any) {
-    this.headerValueChange.emit(value); // Emit the value whenever it changes
+    console.log(value);
+    this.searchInputValue = value;
+    console.log(this.router.url.replace('/', ''));
+    console.log(this.activeTab);
   }
 
   setActiveTab(activeTab: string) {
-    console.log(activeTab);
     this.activeTab = activeTab;
     this.isHamburgerOpen = false;
   }
@@ -44,5 +41,9 @@ export class HeaderComponent {
 
   toggleHamburger() {
     this.isHamburgerOpen = !this.isHamburgerOpen;
+  }
+
+  ngOnInit() {
+    this.setActiveTab(window.location.pathname.replace('/', '')); //set active tab when page reload(It was not  showing active tab in some cases)
   }
 }

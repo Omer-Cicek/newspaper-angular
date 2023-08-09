@@ -1,10 +1,12 @@
 <div class="header">
   <div class="upside-header">
     <li routerLinkActive="active">
-      <a routerLink="/" class="name">Ömer Faruk ÇİÇEK</a>
+      <a routerLink="/" class="name" (click)="setActiveTab('')"
+        >Ömer Faruk ÇİÇEK</a
+      >
     </li>
     <app-input-component
-      (headerValueChange)="inputValue($event)"
+      (inputValueChange)="inputValue($event)"
     ></app-input-component>
   </div>
   <div class="downside-header">

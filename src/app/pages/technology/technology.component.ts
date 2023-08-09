@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CalculationService } from 'src/app/services/calculation.service';
 import { GetData } from 'src/app/services/getData.service';
 import { newsData } from 'src/app/shared/newsData.interface';
 
@@ -15,7 +16,10 @@ export class TechnologyComponent {
   missingNews: newsData[] = [];
   isLoading: boolean = false;
 
-  constructor(private getData: GetData) {}
+  constructor(
+    private getData: GetData,
+    private calculationService: CalculationService
+  ) {}
 
   pageChanged(pageNumber: number) {
     if (pageNumber == this.currentPageNum) return;
@@ -26,9 +30,17 @@ export class TechnologyComponent {
       .then((news) => {
         this.newsCount = news.data.totalResults;
         this.news = news.data.articles; //gets news from newsapi
-        this.calculateMissingNewsCount(news.data.totalResults);
-        this.missingNews = news.data.articles //gets the news that make "news array" 20
-          .slice(-this.calculateMissingNewsCount(news.data.totalResults));
+        this.calculationService.calculateMissingNewsCount(
+          news.data.totalResults
+        );
+        if (this.missingNews.length == 0) {
+          this.missingNews = news.data.articles //gets the news that make "news array" 20
+            .slice(
+              -this.calculationService.calculateMissingNewsCount(
+                news.data.totalResults
+              )
+            );
+        }
         // gets all 20 news except first 3 if pageNumber is 1
         if (news.data.articles.length < 20)
           this.news = [...this.missingNews, ...news.data.articles];

@@ -8,10 +8,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class InputComponentComponent {
   @Output() inputValueChange: EventEmitter<any> = new EventEmitter();
 
-  // ...
+  valueInput: string = '';
+
+  passTheData() {
+    this.inputValueChange.emit(this.valueInput); // Emit the input value
+  }
 
   onHeaderValueChange(event: any) {
-    console.log(event.target.value);
-    this.inputValueChange.emit(event.target.value); // Emit the value from the input component
+    this.valueInput = event.target.value;
   }
 }
