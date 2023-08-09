@@ -17,10 +17,7 @@ export class HeaderComponent {
   @Output() headerValueChange: EventEmitter<any> = new EventEmitter();
 
   inputValue(value: any) {
-    console.log(value);
     this.searchInputValue = value;
-    console.log(this.router.url.replace('/', ''));
-    console.log(this.activeTab);
   }
 
   setActiveTab(activeTab: string) {
