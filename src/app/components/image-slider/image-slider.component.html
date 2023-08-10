@@ -1,41 +1,22 @@
 <div class="slider">
-  <div>
-    <div (click)="goToPrevious()" class="leftArrow">❰</div>
-    <div (click)="goToNext()" class="rightArrow">❱</div>
-  </div>
-  <div class="slide">
-    <img
-      [src]="
+    <div>
+        <div (click)="goToPrevious()" class="leftArrow">❰</div>
+        <div (click)="goToNext()" class="rightArrow">❱</div>
+    </div>
+    <div class="slide">
+        <img [src]="
         !!this.slides.length
           ? this.slides[this.currentIndex].urlToImage
           : '../../../assets/noImage.jpg'
-      "
-      class="img"
-    />
-    <div class="description">
-      <!-- {{ !!this.slides.length && this.slides[this.currentIndex].title }} -->
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam atque
-      sed laudantium, ipsam magnam praesentium accusantium inventore assumenda!
-      Laudantium provident veniam suscipit fuga tenetur voluptatem officiis,
-      vero expedita? Similique debitis consequatur libero, mollitia cupiditate
-      fugiat at vero dolor asperiores voluptatem ipsum cum explicabo aspernatur
-      voluptate ullam magni! Tempore fuga neque nisi dolore quasi omnis
-      doloremque aliquid repellat soluta, corporis assumenda consectetur quam
-      voluptatem amet totam eveniet impedit reiciendis officiis laudantium
-      repellendus beatae. Eius, doloremque omnis provident maiores
-      necessitatibus impedit quam nostrum voluptatibus nesciunt minus, natus,
-      qui ratione. Consequuntur, corrupti fugiat eaque, at cumque recusandae,
-      incidunt excepturi officiis sequi delectus quod?
+      " class="img" />
+        <div class="description">
+            {{ !!this.slides.length && this.slides[this.currentIndex].title }}
+        </div>
     </div>
-  </div>
-  <div class="dotsContainer">
-    <div
-      *ngFor="let slide of slides; let slideIndex = index"
-      class="dot"
-      (click)="goToSlide(slideIndex)"
-      [ngStyle]="{ color: slideIndex == currentIndex ? 'black' : 'blue' }"
-    >
-      ●
+    <div class="dotsContainer">
+        <div *ngFor="let slide of slides; let slideIndex = index" class="dot" (click)="goToSlide(slideIndex)"
+            [ngStyle]="{ color: slideIndex == currentIndex ? 'black' : 'blue' }">
+            ●
+        </div>
     </div>
-  </div>
 </div>
