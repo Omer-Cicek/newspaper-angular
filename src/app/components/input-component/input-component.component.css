@@ -3,9 +3,25 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  /* gap: 5px; */
 }
 
-input {
+.inputText {
   margin: 0;
+  height: 30px;
+  border: none;
+  padding-left: 20px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.searchButton {
+  background-color: #fff;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }

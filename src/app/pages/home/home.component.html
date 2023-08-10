@@ -1,13 +1,17 @@
 <div
-  *ngIf="!isLoading"
+  *ngIf="!isLoading && !showError"
   class="slider"
   style="width: 70%; height: 350px; margin: 15px auto"
 >
-  <app-image-slider [slides]="slides" *ngIf="!isLoading"></app-image-slider>
+  <app-image-slider
+    [slides]="slides"
+    *ngIf="!isLoading && !showError"
+  ></app-image-slider>
 </div>
 
 <div class="homeContainer" *ngFor="let new of news; let i = index">
-  <app-news-card [newsData]="new" *ngIf="!isLoading"> </app-news-card>
+  <app-news-card [newsData]="new" *ngIf="!isLoading && !showError">
+  </app-news-card>
 </div>
 <div class="spinner">
   <img
@@ -19,7 +23,9 @@
   />
 </div>
 <app-pagination
-  *ngIf="!isLoading"
+  *ngIf="!isLoading && !showError"
   [newsCount]="newsCount"
   (parentFunction)="pageChanged($event)"
 ></app-pagination>
+
+<app-error *ngIf="showError"> </app-error>

@@ -8,17 +8,17 @@ export class GetData {
   constructor() {}
   getNewsWithoutQuery() {
     return axios.get(
-      'https://newsapi.org/v2/top-headlines?country=tr&apiKey=676f017549224f488970f1835f9db971'
+      'https://newsapi.org/v2/top-headlines?country=us&apiKey=676f017549224f488970f1835f9db971'
     );
   }
   getNewsWithPageNum(pageNum: number) {
     return axios.get(
-      `https://newsapi.org/v2/top-headlines?country=tr&page=${pageNum}&apiKey=676f017549224f488970f1835f9db971`
+      `https://newsapi.org/v2/top-headlines?country=us&page=${pageNum}&apiKey=676f017549224f488970f1835f9db971`
     );
   }
   getNewsWithCategoryName(categoryName: string, pageNum: number = 1) {
     return axios.get(
-      `https://newsapi.org/v2/top-headlines?country=tr&page=${pageNum}&category=${categoryName}&apiKey=676f017549224f488970f1835f9db971`
+      `https://newsapi.org/v2/top-headlines?country=us&page=${pageNum}&category=${categoryName}&apiKey=676f017549224f488970f1835f9db971`
     );
   }
 }

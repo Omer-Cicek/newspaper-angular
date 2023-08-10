@@ -15,8 +15,10 @@ export class HomeComponent {
   slides: [] = []; //Holds news that will be shown at slider compoenent(first three news)
   missingNews: newsData[] = [];
   isLoading: boolean = false;
+  showError: boolean = false;
 
   getNews() {
+    this.showError = false;
     this.isLoading = true;
     this.getData
       .getNewsWithoutQuery()
@@ -38,6 +40,7 @@ export class HomeComponent {
         });
       })
       .catch((error) => {
+        this.showError = true;
         console.log(error);
       })
       .finally(() => (this.isLoading = false));

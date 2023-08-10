@@ -1,16 +1,28 @@
 <div class="newsCard">
-    <div class="content">
-
-        <p class="title">{{newsData.title}}</p>
-        <p class="description">{{newsData.content || 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae
+  <div class="content">
+    <p class="title">{{ newsData.title }}</p>
+    <p class="description">
+      {{
+        newsData.content ||
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae
             natus aperiam vero ex
-            eius labore modi nulla dolorem ullam voluptatibus!'}}</p>
-        <div class="cardFooter">
-            <p style="font-size:11px;">June 14</p>
-            <p style="font-size:11px;">from <b style="font-size:13px;"> {{newsData.author}} </b></p>
-        </div>
-
+            eius labore modi nulla dolorem ullam voluptatibus!"
+      }}
+    </p>
+    <div class="cardFooter">
+      <p style="font-size: 11px">June 14</p>
+      <p style="font-size: 11px">
+        from
+        <b style="font-size: 13px"> {{ newsData.author || "Anonymous" }} </b>
+      </p>
     </div>
-    <img class="newsImage" [src]="newsData.urlToImage" alt="" height="200px" width="200px"
-        onerror="this.onerror=null; this.src='../../../assets/noImage.jpg'">
+  </div>
+  <img
+    class="newsImage"
+    [src]="newsData.urlToImage"
+    alt=""
+    height="200px"
+    width="200px"
+    onerror="this.onerror=null; this.src='../../../assets/noImage.jpg'"
+  />
 </div>
