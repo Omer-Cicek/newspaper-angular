@@ -18,9 +18,10 @@ export class HeaderComponent {
 
   inputValue(value: any) {
     this.searchInputValue = value;
+    console.log(value);
   }
 
-  setActiveTab(activeTab: string) {
+  public setActiveTab(activeTab: string) {
     this.activeTab = activeTab;
     this.isHamburgerOpen = false;
   }

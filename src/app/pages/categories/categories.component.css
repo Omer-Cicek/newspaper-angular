@@ -1,0 +1,45 @@
+.categoriesContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  min-height: 70vh;
+  height: 100%;
+  position: absolute;
+  /* position: absolute; */
+}
+
+.selectCategory {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  width: 15%;
+  height: 100vh;
+  position: sticky;
+  top: 140px;
+  left: 0px;
+  padding: 10px;
+  /* margin-top: 10px; */
+}
+
+.categoriesTitle {
+  text-decoration: underline;
+}
+
+.listCategory {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.outerListContainer {
+  width: 100%;
+}

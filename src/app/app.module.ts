@@ -4,13 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
-import { BusinessComponent } from './pages/business/business.component';
-import { EntertaintmentComponent } from './pages/entertaintment/entertaintment.component';
-import { GeneralComponent } from './pages/general/general.component';
-import { HealthComponent } from './pages/health/health.component';
-import { ScienceComponent } from './pages/science/science.component';
-import { SportsComponent } from './pages/sports/sports.component';
-import { TechnologyComponent } from './pages/technology/technology.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AboutComponent } from './pages/about/about.component';
 import { NewsCardComponent } from './components/news-card/news-card.component';
@@ -19,18 +12,13 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { InputComponentComponent } from './components/input-component/input-component.component';
 import { ErrorComponent } from './components/error/error.component';
 import { EachCategoriesComponent } from './pages/each-categories/each-categories.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    BusinessComponent,
-    EntertaintmentComponent,
-    GeneralComponent,
-    HealthComponent,
-    ScienceComponent,
-    SportsComponent,
-    TechnologyComponent,
     HeaderComponent,
     AboutComponent,
     NewsCardComponent,
@@ -39,8 +27,9 @@ import { EachCategoriesComponent } from './pages/each-categories/each-categories
     InputComponentComponent,
     ErrorComponent,
     EachCategoriesComponent,
+    CategoriesComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

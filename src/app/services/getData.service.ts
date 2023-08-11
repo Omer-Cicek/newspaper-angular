@@ -16,9 +16,11 @@ export class GetData {
       `https://newsapi.org/v2/top-headlines?country=us&page=${pageNum}&apiKey=676f017549224f488970f1835f9db971`
     );
   }
-  getNewsWithCategoryName(categoryName: string, pageNum: number = 1) {
+  getNewsWithCategoryName(pageNum: number = 1, categoryName: string) {
     return axios.get(
-      `https://newsapi.org/v2/top-headlines?country=us&page=${pageNum}&category=${categoryName}&apiKey=676f017549224f488970f1835f9db971`
+      `https://newsapi.org/v2/top-headlines?country=us&page=${pageNum}&category=${
+        categoryName ? categoryName : ''
+      }&apiKey=676f017549224f488970f1835f9db971`
     );
   }
 }

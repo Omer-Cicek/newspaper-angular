@@ -21,21 +21,21 @@ export class HomeComponent {
     this.showError = false;
     this.isLoading = true;
     this.getData
-      .getNewsWithoutQuery()
+      .getNewsWithCategoryName(this.currentPageNum, '')
       .then((response) => {
         console.log(response, 'resppp');
         this.newsCount = response.data.totalResults;
         this.news = response.data.articles.slice(3); //gets news from newsapi
         this.calculateMissingNewsCount(response.data.totalResults);
         if (this.missingNews.length == 0) {
-          this.missingNews = response.data.articles //gets the news that make "news array" 20
+          this.missingNews = response.data.articles //sets the news to make newsArray's count 20
             .slice(-this.calculateMissingNewsCount(response.data.totalResults));
         }
         console.log(this.missingNews, 'asdasd');
         this.slides = response.data.articles.slice(0, 3).map((el: newsData) => {
           return {
             ...el,
-            ifNoImg: 'src/assets/noImage.jpg', //sets the default image path if the image has no image
+            ifNoImg: 'src/assets/noImage.jpg', //sets the default image path if there is no image 
           };
         });
       })
@@ -57,7 +57,7 @@ export class HomeComponent {
   pageChanged(pageNumber: any) {
     if (pageNumber == this.currentPageNum) return;
     this.currentPageNum = pageNumber;
-    this.getData.getNewsWithPageNum(pageNumber).then((news) => {
+    this.getData.getNewsWithCategoryName(pageNumber, '').then((news) => {
       console.log(news, 'news', news.data.articles.length);
       if (pageNumber == 1) this.news = news.data.articles.slice(3);
       // gets all 20 news except first 3 if pageNumber is 1

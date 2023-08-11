@@ -20,6 +20,13 @@
     >
       <li
         routerLinkActive="active"
+        (click)="setActiveTab('categories')"
+        [ngClass]="[activeTab === 'categories' ? 'activeTab' : '']"
+      >
+        <a routerLink="/categories">Categories</a>
+      </li>
+      <li
+        routerLinkActive="active"
         (click)="setActiveTab('business')"
         [ngClass]="[activeTab === 'business' ? 'activeTab' : '']"
       >
