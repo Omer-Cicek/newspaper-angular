@@ -18,6 +18,6 @@ export class NewsCardComponent {
   }
 
   navigateToDetails() {
-    console.log('clicked');
+    console.log('clicked', this.newsData);
   }
 }

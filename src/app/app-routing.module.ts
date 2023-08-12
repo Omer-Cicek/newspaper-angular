@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { EachCategoriesComponent } from './pages/each-categories/each-categories.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
+import { NewsDetailComponent } from './pages/news-detail/news-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'science', component: EachCategoriesComponent },
   { path: 'sports', component: EachCategoriesComponent },
   { path: 'technology', component: EachCategoriesComponent },
+  { path: 'newsDetail', component: NewsDetailComponent },
 ];
 
 @NgModule({

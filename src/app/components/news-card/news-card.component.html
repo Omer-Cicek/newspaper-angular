@@ -1,4 +1,4 @@
-<div class="newsCard" (click)="navigateToDetails()">
+<div class="newsCard" (click)="navigateToDetails()" routerLink="/newsDetail">
   <div class="content">
     <p class="title">{{ newsData.title }}</p>
     <p class="description">
@@ -26,3 +26,12 @@
     onerror="this.onerror=null; this.src='../../../assets/noImage.jpg'"
   />
 </div>
+
+<!-- 
+<li
+routerLinkActive="active"
+(click)="setActiveTab('categories')"
+[ngClass]="[activeTab === 'categories' ? 'activeTab' : '']"
+>
+<a routerLink="/categories">Categories</a>
+</li> -->
