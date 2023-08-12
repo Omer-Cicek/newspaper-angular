@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { newsData } from '../../shared/newsData.interface';
+import { DateFormatService } from 'src/app/services/dateFormat.service';
 
 @Component({
   selector: 'app-news-card',
@@ -8,4 +9,15 @@ import { newsData } from '../../shared/newsData.interface';
 })
 export class NewsCardComponent {
   @Input() newsData: newsData;
+  formattedDate: string;
+
+  constructor(private dateFormat: DateFormatService) {}
+
+  ngOnInit() {
+    this.formattedDate = this.dateFormat.formatDate(this.newsData.publishedAt);
+  }
+
+  navigateToDetails() {
+    console.log('clicked');
+  }
 }

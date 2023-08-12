@@ -14,6 +14,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { EachCategoriesComponent } from './pages/each-categories/each-categories.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { FormsModule } from '@angular/forms';
+import { NewsDetailComponent } from './pages/news-detail/news-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     ErrorComponent,
     EachCategoriesComponent,
     CategoriesComponent,
+    NewsDetailComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

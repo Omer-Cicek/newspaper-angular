@@ -1,4 +1,4 @@
-<div class="newsCard">
+<div class="newsCard" (click)="navigateToDetails()">
   <div class="content">
     <p class="title">{{ newsData.title }}</p>
     <p class="description">
@@ -14,7 +14,7 @@
         from
         <b style="font-size: 13px"> {{ newsData.author || "Anonymous" }} </b>
       </p>
-      <p style="font-size: 11px">June 14</p>
+      <p style="font-size: 11px">{{ formattedDate || "June 14" }}</p>
     </div>
   </div>
   <img
