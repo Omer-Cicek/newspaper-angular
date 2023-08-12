@@ -1,24 +1,24 @@
 .categoriesContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
   width: 100%;
-  min-height: 70vh;
-  height: 100%;
-  position: absolute;
-  /* position: absolute; */
+  justify-content: space-between;
 }
 
 .selectCategory {
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-  width: 15%;
-  height: 100vh;
+  border-radius: 5px;
+  width: 20%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-self: first baseline;
+  position: -webkit-sticky;
   position: sticky;
-  top: 140px;
-  left: 0px;
-  padding: 10px;
-  /* margin-top: 10px; */
+  top: 10px;
+  margin-top: 10px;
 }
 
 .categoriesTitle {
@@ -26,11 +26,7 @@
 }
 
 .listCategory {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+  align-self: center;
 }
 
 .checkboxes {
@@ -38,6 +34,7 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
+  gap: 5px;
 }
 
 .outerListContainer {

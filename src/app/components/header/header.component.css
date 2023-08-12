@@ -27,6 +27,9 @@
   list-style-type: none;
   font-size: 1.1rem;
   gap: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .downside-header {
@@ -37,6 +40,7 @@
   justify-content: space-between;
   min-height: 50px;
   background-color: #015aac;
+  overflow: hidden;
 }
 
 ul {
@@ -64,7 +68,8 @@ a:hover {
 }
 
 .hamburgerMenu {
-  visibility: hidden;
+  /* visibility: hidden; */
+  display: none;
   margin: 10px;
 }
 
@@ -76,7 +81,8 @@ a:hover {
 
 @media (max-width: 850px) {
   .hamburgerMenu {
-    visibility: initial;
+    /* visibility: initial; */
+    display: flex;
   }
   .navbar-nav {
     display: none;

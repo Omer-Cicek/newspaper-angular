@@ -16,7 +16,6 @@
       <label [for]="category.name">{{ category.name }}</label>
     </div>
   </div>
-
   <div class="outerListContainer">
     <div *ngFor="let new of news" class="listCategory">
       <app-news-card [newsData]="new" *ngIf="!isLoading"> </app-news-card>
@@ -32,3 +31,9 @@
     </div>
   </div>
 </div>
+<app-pagination
+  *ngIf="!isLoading && !showError"
+  [newsCount]="newsCount"
+  [currentPageNumber]="this.currentPageNum || 1"
+  (parentFunction)="pageChanged($event)"
+></app-pagination>

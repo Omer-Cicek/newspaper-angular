@@ -24,6 +24,7 @@ export class CategoriesComponent {
   slides: [] = []; //Holds news that will be shown at slider compoenent(first three news)
   missingNews: newsData[] = []; //it calculates missing news and holds for last page's news count to make it 20
   isLoading: boolean = false; //to show or hide spinner
+  showError: boolean = false;// to show error message if error exists
 
   constructor(
     private getData: GetData,
@@ -43,6 +44,7 @@ export class CategoriesComponent {
     if (this.selectedCategory == selected) {
       this.elRef.nativeElement.isChecked = true;
       this.elRef.nativeElement.value = selected;
+      return;
     }
     this.selectedCategory = selected;
     this.pageChanged(1);
@@ -75,7 +77,7 @@ export class CategoriesComponent {
         if (news.data.articles.length < 20)
           this.news = [...this.missingNews, ...news.data.articles];
       })
-      .catch((err) => console.log(err))
+      .catch((err) => (this.showError = true))
       .finally(() => (this.isLoading = false));
   }
 }
