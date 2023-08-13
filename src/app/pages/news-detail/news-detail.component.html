@@ -1,1 +1,74 @@
-<p>news-detail works!</p>
+<div class="detailContainer">
+    <div class="mainContent">
+        <img [src]="detailData.urlToImage" onerror="this.onerror=null; this.src='../../../assets/noImage.jpg'"
+            alt="newsImg" class="newsImg">
+        <h2>{{detailData.title}}</h2>
+        <div class="newsDetail">
+            <img src="../../../assets/person.jpg" alt="" width="70" height="70" class="person">
+            <div class="info">
+                <div class="author">
+                    {{detailData.author || 'Anonymous Author'}} <span class="textGray">in</span>
+                    {{detailData.sourceName ||'Anonymous Source'}}
+                </div>
+                <div class="date">
+                    <p>{{formattedDate || 'June 14'}} ● 135 views </p>
+                </div>
+            </div>
+        </div>
+
+        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt aliquid nemo velit
+            molestiae iusto! Nobis
+            enim ducimus porro quos ipsam labore explicabo reiciendis, distinctio magnam, ut incidunt quam tenetur?
+            Consequatur excepturi beatae voluptates, vel deserunt aut soluta accusamus dignissimos distinctio
+            repudiandae nisi vero vitae delectus similique quibusdam ullam quisquam perspiciatis numquam error molestiae
+            incidunt sequi nam voluptatem nihil! Nostrum impedit ratione expedita deleniti ut quam neque temporibus
+            itaque ipsum quos tenetur eveniet accusantium excepturi accusamus earum totam mollitia corrupti optio beatae
+            asperiores, iste, eaque dolor voluptas? Cupiditate, in inventore magni ut commodi quasi magnam obcaecati,
+            neque incidunt cum, quo voluptas.</p>
+        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt aliquid nemo velit
+            molestiae iusto! Nobis
+            enim ducimus porro quos ipsam labore explicabo reiciendis, distinctio magnam, ut incidunt quam tenetur?
+            Consequatur excepturi beatae voluptates, vel deserunt aut soluta accusamus dignissimos distinctio
+            repudiandae nisi vero vitae delectus similique quibusdam ullam quisquam perspiciatis numquam error molestiae
+            incidunt sequi nam voluptatem nihil! Nostrum impedit ratione expedita deleniti ut quam neque temporibus
+            itaque ipsum quos tenetur eveniet accusantium excepturi accusamus earum totam mollitia corrupti optio beatae
+            asperiores, iste, eaque dolor voluptas? Cupiditate, in inventore magni ut commodi quasi magnam obcaecati,
+            neque incidunt cum, quo voluptas.</p>
+        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt aliquid nemo velit
+            molestiae iusto! Nobis
+            enim ducimus porro quos ipsam labore explicabo reiciendis, distinctio magnam, ut incidunt quam tenetur?
+            Consequatur excepturi beatae voluptates, vel deserunt aut soluta accusamus dignissimos distinctio
+            repudiandae nisi vero vitae delectus similique quibusdam ullam quisquam perspiciatis numquam error molestiae
+            incidunt sequi nam voluptatem nihil! Nostrum impedit ratione expedita deleniti ut quam neque temporibus
+            itaque ipsum quos tenetur eveniet accusantium excepturi accusamus earum totam mollitia corrupti optio beatae
+            asperiores, iste, eaque dolor voluptas? Cupiditate, in inventore magni ut commodi quasi magnam obcaecati,
+            neque incidunt cum, quo voluptas.</p>
+        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt aliquid nemo velit
+            molestiae iusto! Nobis
+            enim ducimus porro quos ipsam labore explicabo reiciendis, distinctio magnam, ut incidunt quam tenetur?
+            Consequatur excepturi beatae voluptates, vel deserunt aut soluta accusamus dignissimos distinctio
+            repudiandae nisi vero vitae delectus similique quibusdam ullam quisquam perspiciatis numquam error molestiae
+            incidunt sequi nam voluptatem nihil! Nostrum impedit ratione expedita deleniti ut quam neque temporibus
+            itaque ipsum quos tenetur eveniet accusantium excepturi accusamus earum totam mollitia corrupti optio beatae
+            asperiores, iste, eaque dolor voluptas? Cupiditate, in inventore magni ut commodi quasi magnam obcaecati,
+            neque incidunt cum, quo voluptas.</p>
+    </div>
+    <div class="popularPosts">
+        <h3 class="popularTitle">Popular Posts</h3>
+
+        <div *ngFor="let popular of [1,2,3,4]; let i = index">
+            <div class="newsDetail">
+                <div class="number"> 0{{ i+1 }}</div>
+                <div class="info">
+                    <h4 class="popularHeaders">
+                        News Needs to Meet Its Audiences Where They Are
+                    </h4>
+                    <p class="author">Dave Rogers in News</p>
+                    <div class="date">
+                        <p>June 14 ● 3 min read</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

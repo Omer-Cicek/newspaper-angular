@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { v4 as uuid } from 'uuid';
 import { CalculationService } from 'src/app/services/calculation.service';
 import { GetData } from 'src/app/services/getData.service';
 import { newsData } from 'src/app/shared/newsData.interface';
+import { HeaderSearchService } from 'src/app/services/header-search.service';
 
 @Component({
   selector: 'app-each-categories',
@@ -16,10 +18,14 @@ export class EachCategoriesComponent {
   missingNews: newsData[] = []; //it calculates missing news and holds for last page's news count to make it 20
   isLoading: boolean = false; //to show or hide spinner
   currentCategory: string = window.location.pathname; //using current path to request
+  myId = uuid();
+  rawData: newsData[] = [];
+  filteredNews: newsData[] = [];
 
   constructor(
     private getData: GetData,
-    private calculationService: CalculationService
+    private calculationService: CalculationService,
+    private headerSearchService: HeaderSearchService
   ) {}
 
   pageChanged(pageNumber: number) {
@@ -30,8 +36,14 @@ export class EachCategoriesComponent {
       .getNewsWithCategoryName(pageNumber, this.currentCategory.slice(1))
       .then((news) => {
         this.newsCount = news.data.totalResults;
-        console.log(news, 'news', news.data.articles.length);
-        this.news = news.data.articles; //gets news from newsapi
+        this.rawData = this.news = news.data.articles.map((neww: newsData) => {
+          return {
+            ...neww,
+            id: this.myId,
+            currentCategory: this.currentCategory,
+            sourceName: neww.source.name,
+          };
+        }); //gets news from newsapi
         this.calculationService.calculateMissingNewsCount(
           news.data.totalResults
         );
@@ -53,5 +65,15 @@ export class EachCategoriesComponent {
 
   ngOnInit() {
     this.pageChanged(1);
+    this.headerSearchService.headerSearchValueChange.subscribe(
+      //filters data based on header filter value
+      (changedValue) => {
+        console.log(changedValue, 'changedValue44');
+        this.filteredNews = this.rawData.filter((el) =>
+          el.title.toLowerCase().toLowerCase().includes(changedValue)
+        );
+        if (changedValue == '') this.filteredNews = []; // make filteredData array empty when filter is removed
+      }
+    );
   }
 }

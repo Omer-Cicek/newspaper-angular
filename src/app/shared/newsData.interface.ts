@@ -11,4 +11,7 @@ export interface newsData {
   publishedAt: string;
   urlToImage: string | null;
   ifNoImg: string;
+  id: string;
+  currentCategory: string;
+  sourceName: string;
 }

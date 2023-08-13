@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { newsData } from '../../shared/newsData.interface';
 import { DateFormatService } from 'src/app/services/dateFormat.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news-card',
@@ -11,13 +12,17 @@ export class NewsCardComponent {
   @Input() newsData: newsData;
   formattedDate: string;
 
-  constructor(private dateFormat: DateFormatService) {}
+  constructor(private dateFormat: DateFormatService, private router: Router) {}
 
   ngOnInit() {
     this.formattedDate = this.dateFormat.formatDate(this.newsData.publishedAt);
   }
 
-  navigateToDetails() {
-    console.log('clicked', this.newsData);
+  navigateToDetails(newsData: newsData) {
+    console.log('clicked', newsData);
+    let url: string = '/newsDetail/' + newsData.id;
+    // this.router.navigateByUrl(url, { state: { hello: 'world' } });
+    // this.router.navigate([url], { queryParams: 'this.route' });
+    this.router.navigate([url], { queryParams: newsData });
   }
 }

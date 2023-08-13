@@ -1,5 +1,6 @@
 import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HeaderSearchService } from 'src/app/services/header-search.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,10 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private router: Router,
+    private headerSearchService: HeaderSearchService
+  ) {}
   activeTab: string = this.router.url.replace('/', '');
   isHamburgerOpen: boolean = false;
   smaller850px: boolean = false;
@@ -18,7 +22,8 @@ export class HeaderComponent {
 
   inputValue(value: any) {
     this.searchInputValue = value;
-    console.log(value);
+    console.log(value, 'as');
+    this.headerSearchService.changeValue(value);
   }
 
   public setActiveTab(activeTab: string) {

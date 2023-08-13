@@ -1,39 +1,21 @@
 <div class="categoriesContainer">
-  <div class="selectCategory">
-    <h3 class="categoriesTitle">Categories</h3>
-    <div class="checkboxes" *ngFor="let category of categories">
-      <input
-        type="checkbox"
-        [id]="category.name"
-        [name]="category.name"
-        [value]="category.path"
-        [checked]="selectedCategory === category.path"
-        (click)="checkboxClick($event)"
-        (change)="getSelectedCheckbox(category.path)"
-        (isChecked)="(category.isChecked)"
-        #myCheckbox
-      />
-      <label [for]="category.name">{{ category.name }}</label>
+    <div class="selectCategory">
+        <h3 class="categoriesTitle">Categories</h3>
+        <div class="checkboxes" *ngFor="let category of categories">
+            <input type="checkbox" [id]="category.name" [name]="category.name" [value]="category.path"
+                [checked]="selectedCategory === category.path" (click)="checkboxClick($event)"
+                (change)="getSelectedCheckbox(category.path)" (isChecked)="(category.isChecked)" #myCheckbox />
+            <label [for]="category.name">{{ category.name }}</label>
+        </div>
     </div>
-  </div>
-  <div class="outerListContainer">
-    <div *ngFor="let new of news" class="listCategory">
-      <app-news-card [newsData]="new" *ngIf="!isLoading"> </app-news-card>
+    <div class="outerListContainer">
+        <div *ngFor="let new of (!!filteredNews.length ? filteredNews : news); let i = index" class="listCategory">
+            <app-news-card [newsData]="new" *ngIf="!isLoading"> </app-news-card>
+        </div>
+        <div class="spinner" *ngIf="isLoading">
+            <img src="../../../assets//spinner.gif" *ngIf="isLoading" alt="spinner" width="100" height="100" />
+        </div>
     </div>
-    <div class="spinner" *ngIf="isLoading">
-      <img
-        src="../../../assets//spinner.gif"
-        *ngIf="isLoading"
-        alt="spinner"
-        width="100"
-        height="100"
-      />
-    </div>
-  </div>
 </div>
-<app-pagination
-  *ngIf="!isLoading && !showError"
-  [newsCount]="newsCount"
-  [currentPageNumber]="this.currentPageNum || 1"
-  (parentFunction)="pageChanged($event)"
-></app-pagination>
+<app-pagination *ngIf="!isLoading && !showError && !filteredNews.length" [newsCount]="newsCount"
+    [currentPageNumber]="this.currentPageNum || 1" (parentFunction)="pageChanged($event)"></app-pagination>

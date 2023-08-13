@@ -1,30 +1,24 @@
-<div class="newsCard" (click)="navigateToDetails()" routerLink="/newsDetail">
-  <div class="content">
-    <p class="title">{{ newsData.title }}</p>
-    <p class="description">
-      {{
-        newsData.content ||
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae
+<div class="newsCard" (click)="navigateToDetails(newsData)">
+    <div class="content">
+        <p class="title">{{ newsData.title }}</p>
+        <p class="description">
+            {{
+            newsData.content ||
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae
             natus aperiam vero ex
             eius labore modi nulla dolorem ullam voluptatibus!"
-      }}
-    </p>
-    <div class="cardFooter">
-      <p style="font-size: 11px">
-        from
-        <b style="font-size: 13px"> {{ newsData.author || "Anonymous" }} </b>
-      </p>
-      <p style="font-size: 11px">{{ formattedDate || "June 14" }}</p>
+            }}
+        </p>
+        <div class="cardFooter">
+            <p style="font-size: 11px">
+                from
+                <b style="font-size: 13px"> {{ newsData.author || "Anonymous" }} </b>
+            </p>
+            <p style="font-size: 11px">{{ formattedDate || "June 14" }}</p>
+        </div>
     </div>
-  </div>
-  <img
-    class="newsImage"
-    [src]="newsData.urlToImage"
-    alt=""
-    height="200px"
-    width="200px"
-    onerror="this.onerror=null; this.src='../../../assets/noImage.jpg'"
-  />
+    <img class="newsImage" [src]="newsData.urlToImage" alt="" height="200px" width="200px"
+        onerror="this.onerror=null; this.src='../../../assets/noImage.jpg'" />
 </div>
 
 <!-- 
