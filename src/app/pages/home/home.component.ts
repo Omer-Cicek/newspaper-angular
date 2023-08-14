@@ -67,7 +67,6 @@ export class HomeComponent {
             currentCategory: this.currentCategory,
           };
         });
-        console.log(this.news);
       })
       .catch((error) => {
         this.showError = true;
