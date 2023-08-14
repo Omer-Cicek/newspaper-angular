@@ -1,7 +1,7 @@
-<div class="slider">
+<div class="slider" (click)="sliderDetail()">
     <div>
-        <div (click)="goToPrevious()" class="leftArrow">❰</div>
-        <div (click)="goToNext()" class="rightArrow">❱</div>
+        <div (click)="goToPrevious();$event.stopPropagation()" class="leftArrow">❰</div>
+        <div (click)="goToNext();$event.stopPropagation()" class="rightArrow">❱</div>
     </div>
     <div class="slide">
         <img [src]="

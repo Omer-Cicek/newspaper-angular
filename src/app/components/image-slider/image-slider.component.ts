@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { newsData } from 'src/app/shared/newsData.interface';
 @Component({
   selector: 'app-image-slider',
@@ -6,6 +7,8 @@ import { newsData } from 'src/app/shared/newsData.interface';
   styleUrls: ['./image-slider.component.css'],
 })
 export class ImageSliderComponent implements OnInit, OnDestroy {
+  constructor(private router: Router) {}
+
   @Input() slides: newsData[] = [];
 
   currentIndex: number = 0;
@@ -45,5 +48,13 @@ export class ImageSliderComponent implements OnInit, OnDestroy {
   goToSlide(slideIndex: number): void {
     this.resetTimer();
     this.currentIndex = slideIndex;
+  }
+
+  sliderDetail() {
+    console.log('clicked', this.slides);
+    let url: string = '/newsDetail/' + this.slides[this.currentIndex].id;
+    this.router.navigate([url], {
+      queryParams: this.slides[this.currentIndex],
+    });
   }
 }
