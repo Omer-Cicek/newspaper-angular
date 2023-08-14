@@ -69,7 +69,6 @@ export class HomeComponent {
       })
       .catch((error) => {
         this.showError = true;
-        console.log(error);
       })
       .finally(() => (this.isLoading = false));
   }
@@ -89,16 +88,11 @@ export class HomeComponent {
 
   pageChanged(pageNumber: any) {
     if (pageNumber == this.currentPageNum) return;
-    console.log(pageNumber, 'homePageNumm');
     this.currentPageNum = pageNumber;
     this.getNews(pageNumber);
-    console.log(this.headerSearchValue, 'headerSeaerchvalue');
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(this.headerSearchService.getValue());
-    console.log(changes['headerSearchValue']);
-  }
+  ngOnChanges(changes: SimpleChanges) {}
 
   ngOnDestroy() {
     this.headerSearchService.headerSearchValueChange.unsubscribe();

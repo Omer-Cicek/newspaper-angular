@@ -21,11 +21,7 @@ export class PaginationComponent implements OnChanges {
   @Output() parentFunction: EventEmitter<any> = new EventEmitter();
   @Input() currentPageNumber: number;
 
-  ngOnInit() {
-    console.log('initialized');
-    // console.log(this.currentPage);
-    console.log(this.currentPageNumber, 'currentPageNumber');
-  }
+  ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges) {
     // Check if the 'newsCount' input property has changed and pushes numbers to array
@@ -39,16 +35,11 @@ export class PaginationComponent implements OnChanges {
         this.pageNumbers.push(i);
       }
     }
-    // if (changes['currentPage']) {
-    //   console.log(changes['currentPage'], 'currennttt');
-    // }
-    // console.log(changes['currentPage'], 'rrerer');
   }
 
   changePage(pageNum: number) {
     if (this.currentPageNumber == pageNum) return;
     this.currentPageNumber = pageNum;
-    console.log(this.currentPageNumber);
     this.sendPageNumToParent(pageNum);
   }
 
@@ -68,7 +59,6 @@ export class PaginationComponent implements OnChanges {
     ) {
       this.currentPageNumber = this.currentPageNumber + 1;
     }
-    // console.log(this.currentPageNumber, 'this.currentPage');
     this.sendPageNumToParent(this.currentPageNumber + 1);
   }
 

@@ -21,6 +21,7 @@ export class EachCategoriesComponent {
   myId = uuid();
   rawData: newsData[] = [];
   filteredNews: newsData[] = [];
+  showError: boolean = false;
 
   constructor(
     private getData: GetData,
@@ -59,7 +60,7 @@ export class EachCategoriesComponent {
         if (news.data.articles.length < 20)
           this.news = [...this.missingNews, ...news.data.articles];
       })
-      .catch((err) => console.log(err))
+      .catch((err) => (this.showError = true))
       .finally(() => (this.isLoading = false));
   }
 
@@ -68,7 +69,6 @@ export class EachCategoriesComponent {
     this.headerSearchService.headerSearchValueChange.subscribe(
       //filters data based on header filter value
       (changedValue) => {
-        console.log(changedValue, 'changedValue44');
         this.filteredNews = this.rawData.filter((el) =>
           el.title.toLowerCase().toLowerCase().includes(changedValue)
         );

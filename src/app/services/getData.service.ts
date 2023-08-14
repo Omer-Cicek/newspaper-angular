@@ -6,9 +6,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class GetData {
-  constructor() {
-    console.log(environment.apikey);
-  }
+  constructor() {}
   getNewsWithCategoryName(pageNum: number = 1, categoryName: string) {
     return axios.get(
       `https://newsapi.org/v2/top-headlines?country=us&page=${pageNum}&category=${

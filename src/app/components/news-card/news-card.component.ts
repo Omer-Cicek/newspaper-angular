@@ -19,7 +19,6 @@ export class NewsCardComponent {
   }
 
   navigateToDetails(newsData: newsData) {
-    console.log('clicked', newsData);
     let url: string = '/newsDetail/' + newsData.id;
     // this.router.navigateByUrl(url, { state: { hello: 'world' } });
     // this.router.navigate([url], { queryParams: 'this.route' });

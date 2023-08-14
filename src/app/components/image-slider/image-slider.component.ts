@@ -51,7 +51,6 @@ export class ImageSliderComponent implements OnInit, OnDestroy {
   }
 
   sliderDetail() {
-    console.log('clicked', this.slides);
     let url: string = '/newsDetail/' + this.slides[this.currentIndex].id;
     this.router.navigate([url], {
       queryParams: this.slides[this.currentIndex],

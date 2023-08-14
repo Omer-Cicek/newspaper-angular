@@ -48,7 +48,6 @@ export class CategoriesComponent {
     this.headerSearchService.headerSearchValueChange.subscribe(
       //filters data based on header filter value
       (changedValue) => {
-        console.log(changedValue, 'changedValue44');
         this.filteredNews = this.rawData.filter((el) =>
           el.title.toLowerCase().toLowerCase().includes(changedValue)
         );
@@ -77,7 +76,6 @@ export class CategoriesComponent {
       .getNewsWithCategoryName(pageNumber, this.selectedCategory)
       .then((news) => {
         this.newsCount = news.data.totalResults;
-        console.log(news, 'news', news.data.articles.length);
         this.rawData = this.news = news.data.articles.map((neww: newsData) => {
           return {
             ...neww,

@@ -9,7 +9,5 @@ import { environment } from 'src/environments/environment.development';
 export class AppComponent {
   title = 'newspaper-angular';
 
-  constructor() {
-    console.log(environment.production);
-  }
+  constructor() {}
 }

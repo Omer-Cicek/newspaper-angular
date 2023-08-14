@@ -15,7 +15,6 @@ export class HeaderSearchService {
   }
 
   changeValue(value: string) {
-    console.log(value);
     this.headerSearchValueChange.next(value);
   }
 

@@ -1,5 +1,5 @@
 <div class="categoriesContainer">
-    <div class="selectCategory">
+    <div class="selectCategory" *ngIf="!showError">
         <h3 class="categoriesTitle">Categories</h3>
         <div class="checkboxes" *ngFor="let category of categories">
             <input type="checkbox" [id]="category.name" [name]="category.name" [value]="category.path"
@@ -19,3 +19,5 @@
 </div>
 <app-pagination *ngIf="!isLoading && !showError && !filteredNews.length" [newsCount]="newsCount"
     [currentPageNumber]="this.currentPageNum || 1" (parentFunction)="pageChanged($event)"></app-pagination>
+
+<app-error *ngIf="showError"> </app-error>

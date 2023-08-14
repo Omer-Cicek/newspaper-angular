@@ -22,7 +22,6 @@ export class HeaderComponent {
 
   inputValue(value: any) {
     this.searchInputValue = value;
-    console.log(value, 'as');
     this.headerSearchService.changeValue(value);
   }
 

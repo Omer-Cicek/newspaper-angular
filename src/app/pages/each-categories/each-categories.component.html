@@ -4,5 +4,7 @@
 <div class="spinner">
     <img src="../../../assets//spinner.gif" *ngIf="isLoading" alt="spinner" width="100" height="100" />
 </div>
-<app-pagination *ngIf="!isLoading && !filteredNews.length" [newsCount]="newsCount"
+<app-pagination *ngIf="!isLoading && !filteredNews.length && !showError" [newsCount]="newsCount "
     (parentFunction)="pageChanged($event)" [currentPageNumber]="this.currentPageNum || 1"></app-pagination>
+
+<app-error *ngIf="showError"> </app-error>
