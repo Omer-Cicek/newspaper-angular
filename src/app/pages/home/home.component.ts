@@ -34,7 +34,6 @@ export class HomeComponent {
   getNews(pageNumber: number) {
     this.showError = false;
     this.isLoading = true;
-    console.log('çalıltı');
     this.getData
       .getNewsWithCategoryName(this.currentPageNum, '')
       .then((response) => {
