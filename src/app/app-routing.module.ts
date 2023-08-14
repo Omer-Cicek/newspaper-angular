@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'sports', component: EachCategoriesComponent },
   { path: 'technology', component: EachCategoriesComponent },
   { path: 'newsDetail/:id', component: NewsDetailComponent },
-  //   { path: '**', component: ErrorComponent },
+  { path: '**', component: ErrorComponent },
 ];
 
 @NgModule({
