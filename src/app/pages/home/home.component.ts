@@ -81,7 +81,6 @@ export class HomeComponent {
     this.headerSearchService.headerSearchValueChange.subscribe(
       //filters data based on header filter value
       (changedValue) => {
-        console.log(changedValue, 'changedValue');
         this.filteredNews = this.rawData.filter((el) =>
           el.title.toLowerCase().toLowerCase().includes(changedValue)
         );
